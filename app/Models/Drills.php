@@ -18,7 +18,12 @@ class Drills extends Model
         'explanations',
     ];
 
-    public function lessons()
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function lesson()
     {
         return $this->belongsTo(Lessons::class);
     }
