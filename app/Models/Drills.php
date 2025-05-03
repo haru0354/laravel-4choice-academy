@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Drills extends Model
+{
+    protected $fillable = [
+        'user_id',
+        'lesson_id',
+        'question',
+        'choice_1',
+        'choice_2',
+        'choice_3',
+        'choice_4',
+        'correct_choice',
+        'explanations',
+    ];
+
+    public function lessons()
+    {
+        return $this->belongsTo(Lessons::class);
+    }
+}

@@ -10,4 +10,9 @@ class Lessons extends Model
         'user_id',
         'title',
     ];
+
+    public function drills()
+    {
+        return $this->hasMany(Drills::class);
+    }
 }
