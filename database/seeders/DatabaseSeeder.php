@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Drills;
 use App\Models\Lessons;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -25,7 +26,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
         ]);
 
-        Lessons::factory()->count(10)->create();
-
+        Lessons::factory()->count(5)->create();
+        Drills::factory()->count(20)->create();
     }
 }

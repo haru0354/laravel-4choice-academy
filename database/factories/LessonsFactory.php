@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Lessons;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -15,11 +16,14 @@ class LessonsFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+    protected $model = Lessons::class;
+
     public function definition(): array
     {
         return [
             'user_id' => User::inRandomOrder()->first()->id,
-            'title' => $this->faker->sentence,
+            'title' => $this->faker->text(25),
         ];
     }
 }
