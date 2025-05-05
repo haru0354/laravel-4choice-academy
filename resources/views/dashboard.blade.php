@@ -15,6 +15,9 @@
                         <x-form.input name="input">Input</x-form.input>
                         <x-form.textarea name="textarea">Textarea</x-form.textarea>
                     </x-form.form-container>
+                    <x-ui.button>ボタン</x-ui.button>
+                    <x-ui.button size="small">ボタン</x-ui.button>
+                    <x-ui.button size="full">ボタン</x-ui.button>
                 </div>
             </div>
         </div>
