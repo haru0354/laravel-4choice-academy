@@ -1,4 +1,9 @@
-@props(['type' => 'text', 'name' => null, 'value' => null, 'wire' => null])
+@props([
+    'type' => 'text',
+    'name' => null,
+    'value' => null,
+    'wire' => null
+])
 
 <div class="w-full my-2">
     <label for="{{ $name }}" class="leading-7 text-sm text-gray-600">{{ $slot }}</label>

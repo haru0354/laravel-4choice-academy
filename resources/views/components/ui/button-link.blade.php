@@ -1,8 +1,7 @@
 @props([
-    'color' => 'blue', 
-    'size' => 'normal', 
-    'onClick' => null, 
-    'wire' => null
+    'color' => 'blue',
+    'size' => 'normal',
+    'route' => null,
 ])
 
 @php
@@ -23,9 +22,7 @@
     $sizeClass = $sizes[$size] ?? $sizes['normal'];
 @endphp
 
-<button
-    @if ($onClick) onclick="{{ $onClick }}" @endif
-    @if ($wire) wire:click="{{ $wire }}" @endif
-    {{ $attributes->merge(['class' => "$colorClass $sizeClass text-white font-bold shadow-md transition duration-200"]) }}>
+<a href="{{ $route }}"
+    {{ $attributes->merge(['class' => "$colorClass $sizeClass inline-block text-center text-white font-bold shadow-md transition duration-200"]) }}>
     {{ $slot }}
-</button>
+</a>

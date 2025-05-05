@@ -18,6 +18,9 @@
                     <x-ui.button>ボタン</x-ui.button>
                     <x-ui.button size="small">ボタン</x-ui.button>
                     <x-ui.button size="full">ボタン</x-ui.button>
+                    <x-ui.button-link color="gray">ボタン</x-ui.button-link>
+                    <x-ui.button-link color="gray" size="small">ボタン</x-ui.button-link>
+                    <x-ui.button-link color="gray" size="full">ボタン</x-ui.button-link>
                 </div>
             </div>
         </div>
