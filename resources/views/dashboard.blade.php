@@ -13,6 +13,8 @@
 
 
                     <x-form.input name="input">Input</x-form.input>
+                    <x-form.textarea name="textarea">Textarea</x-form.textarea>
+
                 </div>
             </div>
         </div>
