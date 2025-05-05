@@ -11,10 +11,10 @@
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
 
-
-                    <x-form.input name="input">Input</x-form.input>
-                    <x-form.textarea name="textarea">Textarea</x-form.textarea>
-
+                    <x-form.form-container title="フォーム">
+                        <x-form.input name="input">Input</x-form.input>
+                        <x-form.textarea name="textarea">Textarea</x-form.textarea>
+                    </x-form.form-container>
                 </div>
             </div>
         </div>
