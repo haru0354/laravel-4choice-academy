@@ -24,9 +24,9 @@
 
     @if($lessonModal)
     <x-ui.modal-container wire="closeLessonModal" id="lesson">
-        <x-form.form-container title="レッスンの作成" buttonTitle="作成" wire="closeLessonModal">
+        <x-form.livewire-form-container title="レッスンの作成" buttonTitle="作成" submitWire="lessonStore" closeWire="closeLessonModal">
             <x-form.input name="title">レッスン名</x-form.input>
-        </x-form.form-container>
+        </x-form.livewire-form-container>
     </x-ui.modal-container>
     @endif
 

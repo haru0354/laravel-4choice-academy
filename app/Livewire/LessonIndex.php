@@ -9,6 +9,7 @@ use Livewire\Component;
 class LessonIndex extends Component
 {
     public $user_id;
+    public $title;
     public $lessons;
     public $lessonModal = false;
 
@@ -26,6 +27,17 @@ class LessonIndex extends Component
     public function closeLessonModal()
     {
         $this->lessonModal = false;
+    }
+
+    public function lessonStore()
+    {
+        Lesson::create([
+            'user_id' => $this->user_id,
+            'title' => $this->title,
+        ]);
+
+        $this->lessons = Lesson::where('user_id', $this->user_id)->get();
+        $this->closeLessonModal();
     }
 
     public function render()
