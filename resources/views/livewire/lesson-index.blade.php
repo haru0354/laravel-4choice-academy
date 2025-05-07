@@ -20,4 +20,11 @@
             @endforeach
         </tbody>
     </table>
+    <x-ui.button wire="openLessonModal">開く</x-ui.button>
+
+    @if($lessonModal)
+    <p>test</p>
+    <x-ui.button wire="closeLessonModal">閉じる</x-ui.button>
+    @endif
+
 </section>
