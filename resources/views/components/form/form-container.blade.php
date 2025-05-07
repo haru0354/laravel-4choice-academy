@@ -4,6 +4,7 @@
     'title' => null,
     'buttonTitle' => "送信",
     'backRoute' => null,
+    'wire' => null,
 ])
 
 <form method="{{ $method }}" action="{{ $action }}"
@@ -13,6 +14,11 @@
     {{ $slot }}
     <div class="mb-2 text-center">
         <x-ui.button size="normal" color="blue" class="mt-8 block mx-auto rounded">{{ $buttonTitle }}</x-ui.button>
+        @if($backRoute)
         <x-ui.button-link size="normal" color="gray" route="{{ $backRoute }}" class="block mx-auto rounded">キャンセル</x-ui.button-link>
+        @endif
+        @if($wire)
+        <x-ui.button type="button" size="normal" color="gray" wire="{{ $wire }}" class="block mx-auto rounded">閉じる</x-ui.button>
+        @endif
     </div>
 </form>
