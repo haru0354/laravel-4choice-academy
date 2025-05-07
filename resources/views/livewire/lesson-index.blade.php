@@ -23,8 +23,11 @@
     <x-ui.button wire="openLessonModal">開く</x-ui.button>
 
     @if($lessonModal)
-    <p>test</p>
-    <x-ui.button wire="closeLessonModal">閉じる</x-ui.button>
+    <x-ui.modal-container wire="closeLessonModal" id="lesson">
+        <p>テスト</p>
+        <p>テスト</p>
+        <x-ui.button wire="closeLessonModal">閉じる</x-ui.button>
+    </x-ui.modal-container>
     @endif
 
 </section>
