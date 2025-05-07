@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Models\Lessons;
+use App\Models\Lesson;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -14,7 +14,7 @@ class LessonIndex extends Component
     public function mount()
     {
         $this->user_id = Auth::id();
-        $this->lessons = Lessons::where('user_id', $this->user_id)->get();
+        $this->lessons = Lesson::where('user_id', $this->user_id)->get();
     }
 
     public function render()

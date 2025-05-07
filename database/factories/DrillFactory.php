@@ -2,15 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\Drills;
-use App\Models\Lessons;
+use App\Models\Drill;
+use App\Models\Lesson;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Drills>
  */
-class DrillsFactory extends Factory
+class DrillFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,13 +18,13 @@ class DrillsFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = Drills::class;
+    protected $model = Drill::class;
 
     public function definition(): array
     {
         return [
             'user_id' => User::inRandomOrder()->first()->id,
-            'lesson_id' => Lessons::inRandomOrder()->first()->id,
+            'lesson_id' => Lesson::inRandomOrder()->first()->id,
             'question' => $this->faker->sentence,
             'choice_1' => $this->faker->word,
             'choice_2' => $this->faker->word,
