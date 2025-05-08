@@ -27,6 +27,7 @@ class LessonIndex extends Component
     public function closeLessonModal()
     {
         $this->lessonModal = false;
+        $this->resetLessonForm();
     }
 
     public function lessonStore()
@@ -43,6 +44,11 @@ class LessonIndex extends Component
     public function getLessons()
     {
         $this->lessons = Lesson::where('user_id', $this->user_id)->get();
+    }
+
+    public function resetLessonForm()
+    {
+        $this->reset(['title']);
     }
 
     public function render()
