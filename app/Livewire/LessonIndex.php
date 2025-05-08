@@ -59,10 +59,18 @@ class LessonIndex extends Component
             'title' => $this->title,
         ]);
     
+        $this->closeLessonModal();
+        $this->getLessons();
+
+    }
+
+    public function lessonDestroy()
+    {
+        $lesson = Lesson::findOrFail($this->editingLessonId);
+        $lesson->delete();
+
         $this->getLessons();
         $this->closeLessonModal();
-
-        session()->flash('message', 'レッスンを更新しました。');
     }
 
     public function getLessons()

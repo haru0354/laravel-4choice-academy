@@ -26,7 +26,9 @@
 
     @if($lessonModal)
     <x-ui.modal-container wire="closeLessonModal" id="lesson">
-        <x-form.livewire-form-container title="{{ $editingLessonId ? 'レッスンの編集' : 'レッスンの作成' }}" buttonTitle="{{ $editingLessonId ? '編集' : '作成' }}" submitWire="{{ $editingLessonId ? 'lessonUpdate' : 'lessonStore' }}" closeWire="closeLessonModal">
+        <x-form.livewire-form-container
+            title="{{ $editingLessonId ? 'レッスンの編集' : 'レッスンの作成' }}" buttonTitle="{{ $editingLessonId ? '編集' : '作成' }}"
+            submitWire="{{ $editingLessonId ? 'lessonUpdate' : 'lessonStore' }}" closeWire="closeLessonModal" deleteWire="{{ $editingLessonId ? 'lessonDestroy' : null }}">
             <x-form.input name="title">レッスン名</x-form.input>
         </x-form.livewire-form-container>
     </x-ui.modal-container>
