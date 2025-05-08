@@ -9,6 +9,7 @@ use Livewire\Component;
 class LessonIndex extends Component
 {
     public $user_id;
+    public $editingLessonId;
     public $title;
     public $lessons;
     public $lessonModal = false;
@@ -21,6 +22,14 @@ class LessonIndex extends Component
 
     public function openLessonModal()
     {
+        $this->lessonModal = true;
+    }
+
+    public function openEditLessonModal($editingLessonId)
+    {
+        $lesson = Lesson::findOrFail($editingLessonId);
+
+        $this->title = $lesson->title;
         $this->lessonModal = true;
     }
 
@@ -48,7 +57,7 @@ class LessonIndex extends Component
 
     public function resetLessonForm()
     {
-        $this->reset(['title']);
+        $this->reset(['editingLessonId', 'title']);
     }
 
     public function render()
