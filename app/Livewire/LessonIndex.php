@@ -29,6 +29,7 @@ class LessonIndex extends Component
     {
         $lesson = Lesson::findOrFail($editingLessonId);
 
+        $this->editingLessonId = $editingLessonId;
         $this->title = $lesson->title;
         $this->lessonModal = true;
     }
@@ -48,6 +49,20 @@ class LessonIndex extends Component
 
         $this->getLessons();
         $this->closeLessonModal();
+    }
+
+    public function lessonUpdate()
+    {
+        $lesson = Lesson::findOrFail($this->editingLessonId);
+
+        $lesson->update([
+            'title' => $this->title,
+        ]);
+    
+        $this->getLessons();
+        $this->closeLessonModal();
+
+        session()->flash('message', 'レッスンを更新しました。');
     }
 
     public function getLessons()
