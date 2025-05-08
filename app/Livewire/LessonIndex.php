@@ -16,7 +16,7 @@ class LessonIndex extends Component
     public function mount()
     {
         $this->user_id = Auth::id();
-        $this->lessons = Lesson::where('user_id', $this->user_id)->get();
+        $this->getLessons();
     }
 
     public function openLessonModal()
@@ -36,8 +36,13 @@ class LessonIndex extends Component
             'title' => $this->title,
         ]);
 
-        $this->lessons = Lesson::where('user_id', $this->user_id)->get();
+        $this->getLessons();
         $this->closeLessonModal();
+    }
+
+    public function getLessons()
+    {
+        $this->lessons = Lesson::where('user_id', $this->user_id)->get();
     }
 
     public function render()
