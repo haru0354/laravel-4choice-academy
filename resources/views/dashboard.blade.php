@@ -9,18 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-
-                    <x-form.form-container title="フォーム">
-                        <x-form.input name="input">Input</x-form.input>
-                        <x-form.textarea name="textarea">Textarea</x-form.textarea>
-                    </x-form.form-container>
-                    <x-ui.button>ボタン</x-ui.button>
-                    <x-ui.button size="small">ボタン</x-ui.button>
-                    <x-ui.button size="full">ボタン</x-ui.button>
-                    <x-ui.button-link color="gray">ボタン</x-ui.button-link>
-                    <x-ui.button-link color="gray" size="small">ボタン</x-ui.button-link>
-                    <x-ui.button-link color="gray" size="full">ボタン</x-ui.button-link>
+                    <livewire:lesson-index />
                 </div>
             </div>
         </div>

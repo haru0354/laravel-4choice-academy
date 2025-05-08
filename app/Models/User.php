@@ -48,11 +48,11 @@ class User extends Authenticatable
 
     public function lessons()
     {
-        return $this->hasMany(Lessons::class);
+        return $this->hasMany(Lesson::class);
     }
 
     public function drills()
     {
-        return $this->hasMany(Drills::class);
+        return $this->hasMany(Drill::class);
     }
 }

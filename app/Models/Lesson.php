@@ -5,20 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Drills extends Model
+class Lesson extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
-        'lesson_id',
-        'question',
-        'choice_1',
-        'choice_2',
-        'choice_3',
-        'choice_4',
-        'correct_choice',
-        'explanations',
+        'title',
     ];
 
     public function user()
@@ -26,8 +19,8 @@ class Drills extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function lesson()
+    public function drills()
     {
-        return $this->belongsTo(Lessons::class);
+        return $this->hasMany(Drill::class);
     }
 }

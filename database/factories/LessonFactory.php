@@ -2,14 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\Lessons;
+use App\Models\Lesson;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Lessons>
  */
-class LessonsFactory extends Factory
+class LessonFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class LessonsFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = Lessons::class;
+    protected $model = Lesson::class;
 
     public function definition(): array
     {
