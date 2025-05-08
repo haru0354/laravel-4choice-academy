@@ -1,5 +1,5 @@
 <section>
-    <h2>レッスンの一覧</h2>
+    <h2 class="mb-6 text-2xl font-semibold">レッスンの一覧</h2>
     <table class="table-auto w-full text-left">
         <thead>
             <tr>
@@ -22,7 +22,7 @@
             @endforeach
         </tbody>
     </table>
-    <x-ui.button wire="openLessonModal">開く</x-ui.button>
+    <x-ui.button wire="openLessonModal" class="block mx-auto my-4">レッスンの作成</x-ui.button>
 
     @if($lessonModal)
     <x-ui.modal-container wire="closeLessonModal" id="lesson">
