@@ -12,6 +12,7 @@ class DrillIndex extends Component
     public $user_id;
     public $drills;
     public $lessonTitle;
+    public $drillModal = false;
     public $lesson_id, $editingDrillId, $question, $choice_1, $choice_2, $choice_3, $choice_4, $correct_choice, $explanations;
 
     public function mount($lesson_id)
@@ -21,6 +22,17 @@ class DrillIndex extends Component
 
         $this->getDrills();
         $this->getLessonTitle();
+    }
+
+    public function openDrillModal()
+    {
+        $this->drillModal = true;
+    }
+
+    public function closeDrillModal()
+    {
+        $this->drillModal = false;
+        $this->resetDrillForm();
     }
 
     public function getDrills()

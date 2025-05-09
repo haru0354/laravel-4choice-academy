@@ -1,4 +1,4 @@
-<div>
+<section>
     <h2 class="mb-6 text-2xl font-semibold">{{ $lessonTitle }}の詳細</h2>
     <table class="table-auto w-full text-left">
         <thead>
@@ -20,4 +20,12 @@
             @endforeach
         </tbody>
     </table>
-</div>
+    <x-ui.button wire="openDrillModal" class="block mx-auto my-4">モーダルオープン</x-ui.button>
+
+    @if($drillModal)
+    <div>
+        モーダルテスト
+        <x-ui.button wire="closeDrillModal" class="block mx-auto my-4">モーダルクローズ</x-ui.button>
+    </div>
+    @endif
+</section>
