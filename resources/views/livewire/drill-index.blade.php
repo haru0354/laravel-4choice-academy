@@ -23,9 +23,18 @@
     <x-ui.button wire="openDrillModal" class="block mx-auto my-4">モーダルオープン</x-ui.button>
 
     @if($drillModal)
-    <div>
-        モーダルテスト
-        <x-ui.button wire="closeDrillModal" class="block mx-auto my-4">モーダルクローズ</x-ui.button>
-    </div>
+    <x-ui.modal-container wire="closeDrillModal" id="drill">
+        <x-form.livewire-form-container
+            title="ドリルの作成" buttonTitle="作成"
+            closeWire="closeDrillModal">
+            <x-form.input name="question">問題</x-form.input>
+            <x-form.input name="choice_1">解答.1</x-form.input>
+            <x-form.input name="choice_2">解答.2</x-form.input>
+            <x-form.input name="choice_3">解答.3</x-form.input>
+            <x-form.input name="choice_4">解答.4</x-form.input>
+            <x-form.input name="correct_choice">答え</x-form.input>
+            <x-form.textarea name="explanations">解説</x-form.textarea>
+        </x-form.livewire-form-container>
+    </x-ui.modal-container>
     @endif
 </section>
