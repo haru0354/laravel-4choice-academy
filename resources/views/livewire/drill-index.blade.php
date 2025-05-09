@@ -20,7 +20,7 @@
             @endforeach
         </tbody>
     </table>
-    <x-ui.button wire="openDrillModal" class="block mx-auto my-4">モーダルオープン</x-ui.button>
+    <x-ui.button wire="openDrillModal" class="block mx-auto my-4 rounded">問題の追加</x-ui.button>
 
     @if($drillModal)
     <x-ui.modal-container wire="closeDrillModal" id="drill">
@@ -32,7 +32,9 @@
             <x-form.input name="choice_2">解答.2</x-form.input>
             <x-form.input name="choice_3">解答.3</x-form.input>
             <x-form.input name="choice_4">解答.4</x-form.input>
-            <x-form.input name="correct_choice">答え</x-form.input>
+            <x-form.select name="correct_choice" :options="[1 => 1, 2 => 2, 3 => 3, 4 => 4]">
+                答え
+            </x-form.select>
             <x-form.textarea name="explanations">解説</x-form.textarea>
         </x-form.livewire-form-container>
     </x-ui.modal-container>
