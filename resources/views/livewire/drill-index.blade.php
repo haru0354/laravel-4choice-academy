@@ -26,7 +26,7 @@
     <x-ui.modal-container wire="closeDrillModal" id="drill">
         <x-form.livewire-form-container
             title="ドリルの作成" buttonTitle="作成"
-            closeWire="closeDrillModal">
+            submitWire="drillStore" closeWire="closeDrillModal">
             <x-form.input name="question">問題</x-form.input>
             <x-form.input name="choice_1">解答.1</x-form.input>
             <x-form.input name="choice_2">解答.2</x-form.input>
