@@ -10,11 +10,9 @@ use Livewire\Component;
 class DrillIndex extends Component
 {
     public $user_id;
-    public $lesson_id;
     public $drills;
     public $lessonTitle;
-
-
+    public $lesson_id, $editingDrillId, $question, $choice_1, $choice_2, $choice_3, $choice_4, $correct_choice, $explanations;
 
     public function mount($lesson_id)
     {
@@ -33,6 +31,11 @@ class DrillIndex extends Component
     public function getLessonTitle()
     {
         $this->lessonTitle = Lesson::where('id', $this->lesson_id)->first()?->title;
+    }
+
+    public function resetDrillForm()
+    {
+        $this->reset(['editingDrillId', 'question', 'choice_1', 'choice_2', 'choice_3', 'choice_4', 'correct_choice', 'explanations']);
     }
 
     public function render()
