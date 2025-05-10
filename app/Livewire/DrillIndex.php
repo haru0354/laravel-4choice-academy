@@ -70,6 +70,24 @@ class DrillIndex extends Component
         $this->closeDrillModal();
     }
 
+    public function drillUpdate()
+    {
+        $drill = Drill::findOrFail($this->editingDrillId);
+
+        $drill->update([
+            'question' => $this->question,
+            'choice_1' => $this->choice_1,
+            'choice_2' => $this->choice_2,
+            'choice_3' => $this->choice_3,
+            'choice_4' => $this->choice_4,
+            'correct_choice' => $this->correct_choice,
+            'explanations' => $this->explanations,
+        ]);
+
+        $this->closeDrillModal();
+        $this->getDrills();
+    }
+
     public function getDrills()
     {
         $this->drills = Drill::where('lesson_id', $this->lesson_id)->get();
