@@ -29,6 +29,22 @@ class DrillIndex extends Component
         $this->drillModal = true;
     }
 
+    public function openEditDrillModal($editingDrillId)
+    {
+        $drill = Drill::findOrFail($editingDrillId);
+
+        $this->editingDrillId = $editingDrillId;
+        $this->question = $drill->question;
+        $this->choice_1 = $drill->choice_1;
+        $this->choice_2 = $drill->choice_2;
+        $this->choice_3 = $drill->choice_3;
+        $this->choice_4 = $drill->choice_4;
+        $this->correct_choice = $drill->correct_choice;
+        $this->explanations = $drill->explanations;
+
+        $this->drillModal = true;
+    }
+
     public function closeDrillModal()
     {
         $this->drillModal = false;
@@ -53,7 +69,6 @@ class DrillIndex extends Component
         $this->getDrills();
         $this->closeDrillModal();
     }
-
 
     public function getDrills()
     {

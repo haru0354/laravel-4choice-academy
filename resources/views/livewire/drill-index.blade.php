@@ -15,7 +15,7 @@
                 <td class="px-4 py-3 border-t-2 border-gray-200">{{ $drill->id }}</td>
                 <td class="px-4 py-3 border-t-2 border-gray-200">{{ $drill->question }}</td>
                 <td class="px-4 py-3 border-t-2 border-gray-200">{{ $drill->created_at }}</td>
-                <td class="px-4 py-3 border-t-2 border-gray-200">編集</td>
+                <td class="px-4 py-3 border-t-2 text-sky-500 hover:text-sky-700 border-gray-200 cursor-pointer" wire:click="openEditDrillModal({{ $drill->id }})">編集</td>
             </tr>
             @endforeach
         </tbody>
@@ -25,7 +25,7 @@
     @if($drillModal)
     <x-ui.modal-container wire="closeDrillModal" id="drill">
         <x-form.livewire-form-container
-            title="ドリルの作成" buttonTitle="作成"
+            title="{{ $editingDrillId ? '問題の編集' : '問題の作成' }}" buttonTitle="{{ $editingDrillId ? '問題の編集' : '問題の作成' }}"
             submitWire="drillStore" closeWire="closeDrillModal">
             <x-form.input name="question">問題</x-form.input>
             <x-form.input name="choice_1">解答.1</x-form.input>
