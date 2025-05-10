@@ -84,8 +84,17 @@ class DrillIndex extends Component
             'explanations' => $this->explanations,
         ]);
 
-        $this->closeDrillModal();
         $this->getDrills();
+        $this->closeDrillModal();
+    }
+
+    public function drillDestroy()
+    {
+        $drill = Drill::findOrFail($this->editingDrillId);
+        $drill->delete();
+
+        $this->getDrills();
+        $this->closeDrillModal();
     }
 
     public function getDrills()

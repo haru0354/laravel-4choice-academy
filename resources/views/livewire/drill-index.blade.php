@@ -26,7 +26,7 @@
     <x-ui.modal-container wire="closeDrillModal" id="drill">
         <x-form.livewire-form-container
             title="{{ $editingDrillId ? '問題の編集' : '問題の作成' }}" buttonTitle="{{ $editingDrillId ? '問題の編集' : '問題の作成' }}"
-            submitWire="{{ $editingDrillId ? 'drillUpdate' : 'drillStore' }}" closeWire="closeDrillModal">
+            submitWire="{{ $editingDrillId ? 'drillUpdate' : 'drillStore' }}" closeWire="closeDrillModal" deleteWire="{{ $editingDrillId ? 'drillDestroy' : null }}">
             <x-form.input name="question">問題</x-form.input>
             <x-form.input name="choice_1">解答.1</x-form.input>
             <x-form.input name="choice_2">解答.2</x-form.input>
