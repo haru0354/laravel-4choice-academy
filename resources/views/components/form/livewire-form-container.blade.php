@@ -7,7 +7,7 @@
 ])
 
 <form wire:submit.prevent="{{ $submitWire }}"
-    {{ $attributes->merge(['class' => 'w-full max-w-[480px] mx-auto m-6 p-6 border rounded border-gray-300 bg-white']) }}>
+    {{ $attributes->merge(['class' => 'w-full mx-auto p-6 border rounded border-gray-300 bg-white']) }}>
     @if ($title) <p class="text-center mt-2 mb-6 pb-2 text-xl sm:text-2xl font-semibold border-b text-gray-500 border-gray-300">{{ $title }}</p>@endif
     {{ $slot }}
     <div class="mb-2 text-center">
