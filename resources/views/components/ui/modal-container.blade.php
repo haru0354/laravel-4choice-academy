@@ -1,4 +1,4 @@
-@props(['maxWidth' => 'max-w-[500px]', 'id' => 'modal', 'wire' => null])
+@props(['maxWidth' => 'max-w-[580px]', 'id' => 'modal', 'wire' => null])
 
 <div id="{{ $id }}"
     @if($wire) wire:click="{{ $wire }}" @endif

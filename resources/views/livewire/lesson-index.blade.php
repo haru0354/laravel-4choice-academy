@@ -8,6 +8,7 @@
                 <th class="px-4 py-3 font-semibold bg-gray-100">登録日</th>
                 <th class="px-4 py-3 font-semibold bg-gray-100">学ぶ</th>
                 <th class="px-4 py-3 font-semibold bg-gray-100">編集</th>
+                <th class="px-4 py-3 font-semibold bg-gray-100">詳細</th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +19,7 @@
                 <td class="px-4 py-3 border-t-2 border-gray-200">{{ $lesson->created_at }}</td>
                 <td class="px-4 py-3 border-t-2 border-gray-200">開始</td>
                 <td class="px-4 py-3 border-t-2 text-sky-500 hover:text-sky-700 border-gray-200 cursor-pointer" wire:click="openEditLessonModal({{ $lesson->id }})">編集</td>
+                <td class="px-4 py-3 border-t-2  border-gray-200"><a href="{{ route('drills', ['lesson_id' => $lesson->id]) }}" class="text-sky-500 hover:text-sky-700">詳細</a></td>
             </tr>
             @endforeach
         </tbody>
