@@ -51,15 +51,15 @@ class DrillIndex extends Component
         $this->deleteDrillModal = true;
     }
 
-    public function closeDeleteDrillModal()
-    {
-        $this->deleteDrillModal = false;
-    }
-
     public function closeDrillModal()
     {
         $this->drillModal = false;
         $this->resetDrillForm();
+    }
+
+    public function closeDeleteDrillModal()
+    {
+        $this->deleteDrillModal = false;
     }
 
     public function drillStore()
@@ -105,6 +105,7 @@ class DrillIndex extends Component
         $drill->delete();
 
         $this->getDrills();
+        $this->closeDeleteDrillModal();
         $this->closeDrillModal();
     }
 
