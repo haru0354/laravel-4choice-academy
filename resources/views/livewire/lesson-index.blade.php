@@ -30,10 +30,19 @@
     <x-ui.modal-container wire="closeLessonModal" id="lesson">
         <x-form.livewire-form-container
             title="{{ $editingLessonId ? 'レッスンの編集' : 'レッスンの作成' }}" buttonTitle="{{ $editingLessonId ? '編集' : '作成' }}"
-            submitWire="{{ $editingLessonId ? 'lessonUpdate' : 'lessonStore' }}" closeWire="closeLessonModal" deleteWire="{{ $editingLessonId ? 'lessonDestroy' : null }}">
+            submitWire="{{ $editingLessonId ? 'lessonUpdate' : 'lessonStore' }}" closeWire="closeLessonModal">
             <x-form.input name="title">レッスン名</x-form.input>
+
+            @if(isset($editingLessonId))
+            <x-slot name="deleteSlot">
+                <x-ui.button type="button" color="red" wire="openDeleteLessonModal" class="block mx-auto my-4 rounded">削除</x-ui.button>
+                @if($deleteLessonModal)
+                <x-ui.delete-modal-container title="{{ $lesson->title }}" closeWire="closeDeleteLessonModal" deleteWire="lessonDestroy" />
+                @endif
+            </x-slot>
+            @endif
+
         </x-form.livewire-form-container>
     </x-ui.modal-container>
     @endif
-
 </section>
