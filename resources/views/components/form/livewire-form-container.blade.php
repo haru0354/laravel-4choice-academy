@@ -3,7 +3,6 @@
     'buttonTitle' => "送信",
     'submitWire' => null,
     'closeWire' => null,
-    'deleteWire' => null,
 ])
 
 <form wire:submit.prevent="{{ $submitWire }}"
@@ -14,10 +13,10 @@
         <x-ui.button size="normal" color="blue" class="mt-8 block mx-auto rounded">{{ $buttonTitle }}</x-ui.button>
         <x-ui.button type="button" size="normal" color="gray" wire="{{ $closeWire }}" class="block mx-auto rounded">閉じる</x-ui.button>
     </div>
-    @if ($deleteWire)
-    <div class="mt-6 pt-2 border-t border-dashed border-gray-300">
-        <x-ui.button type="button" wire="{{ $deleteWire }}" color="red" class="block mx-auto rounded">削除</x-ui.button>
-    </div>
-    @endif
 
+    @if (isset($deleteSlot))
+        <div class="mt-6 pt-2 border-t border-dashed border-gray-300">
+        {{ $deleteSlot }}
+        </div>
+    @endif
 </form>

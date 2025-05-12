@@ -13,6 +13,7 @@ class LessonIndex extends Component
     public $title;
     public $lessons;
     public $lessonModal = false;
+    public $deleteLessonModal = false;
 
     public function mount()
     {
@@ -34,10 +35,20 @@ class LessonIndex extends Component
         $this->lessonModal = true;
     }
 
+    public function openDeleteLessonModal()
+    {
+        $this->deleteLessonModal = true;
+    }
+
     public function closeLessonModal()
     {
         $this->lessonModal = false;
         $this->resetLessonForm();
+    }
+
+    public function closeDeleteLessonModal()
+    {
+        $this->deleteLessonModal = false;
     }
 
     public function lessonStore()
@@ -58,10 +69,9 @@ class LessonIndex extends Component
         $lesson->update([
             'title' => $this->title,
         ]);
-    
+
         $this->closeLessonModal();
         $this->getLessons();
-
     }
 
     public function lessonDestroy()
@@ -70,6 +80,8 @@ class LessonIndex extends Component
         $lesson->delete();
 
         $this->getLessons();
+
+        $this->closeDeleteLessonModal();
         $this->closeLessonModal();
     }
 

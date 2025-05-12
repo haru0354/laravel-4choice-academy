@@ -13,6 +13,7 @@ class DrillIndex extends Component
     public $drills;
     public $lessonTitle;
     public $drillModal = false;
+    public $deleteDrillModal = false;
     public $lesson_id, $editingDrillId, $question, $choice_1, $choice_2, $choice_3, $choice_4, $correct_choice, $explanations;
 
     public function mount($lesson_id)
@@ -45,10 +46,20 @@ class DrillIndex extends Component
         $this->drillModal = true;
     }
 
+    public function openDeleteDrillModal()
+    {
+        $this->deleteDrillModal = true;
+    }
+
     public function closeDrillModal()
     {
         $this->drillModal = false;
         $this->resetDrillForm();
+    }
+
+    public function closeDeleteDrillModal()
+    {
+        $this->deleteDrillModal = false;
     }
 
     public function drillStore()
@@ -94,6 +105,7 @@ class DrillIndex extends Component
         $drill->delete();
 
         $this->getDrills();
+        $this->closeDeleteDrillModal();
         $this->closeDrillModal();
     }
 
