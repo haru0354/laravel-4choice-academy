@@ -11,12 +11,15 @@ class LessonLearn extends Component
     public $user_id;
     public $lesson_id;
     public $lesson;
+
     public $drills = [];
     public $currentIndex = 0;
 
     public $judgementModal = false;
     public $isCorrect;
     public $selectedChoice;
+
+    public $isLessonEndModal = false;
 
     public function mount($lesson_id)
     {
@@ -44,6 +47,12 @@ class LessonLearn extends Component
 
     public function nextQuestion()
     {
+        if ($this->currentIndex >= count($this->drills) - 1) {
+            $this->judgementModal = false;
+            $this->isLessonEndModal = true;
+            return;
+        }
+
         $this->currentIndex++;
 
         $this->isCorrect = null;

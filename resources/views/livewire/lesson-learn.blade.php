@@ -38,4 +38,19 @@
         </div>
     </x-ui.modal-container>
     @endif
+
+    @if ($isLessonEndModal)
+    <x-ui.modal-container id="end">
+        <h2 class="text-2xl font-extrabold text-gray-800 text-center mb-6">
+            🎉 クイズ終了 🎉
+        </h2>
+        <p class="my-6 text-lg text-gray-700 text-center">
+            お疲れさまでした！これにてクイズは終了です
+        </p>
+        <div class="mt-4 text-center">
+            <x-ui.button-link route="{{ route('dashboard') }}" class="rounded">レッスンの一覧へ</x-ui.button-link>
+            <x-ui.button-link route="{{ route('learn', [$lesson_id => $lesson->id]) }}" color="gray" class="rounded">もういちど挑戦</x-ui.button-link>
+        </div>
+    </x-ui.modal-container>
+    @endif
 </div>
