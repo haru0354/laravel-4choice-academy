@@ -13,11 +13,22 @@ class LessonLearn extends Component
     public $lesson;
     public $drills = [];
     public $currentIndex = 0;
+    public $judgementModal = false;
 
     public function mount($lesson_id)
     {
         $this->user_id = Auth::id();
         $this->getLesson($lesson_id);
+    }
+
+    public function selectAnswer()
+    {
+        $this->judgementModal = true;
+    }
+
+    public function nextQuestion()
+    {
+        $this->judgementModal = false;
     }
 
     public function getLesson($lesson_id)
