@@ -44,6 +44,10 @@ class LessonLearn extends Component
 
     public function nextQuestion()
     {
+        $this->currentIndex++;
+
+        $this->isCorrect = null;
+        $this->selectedChoice = null;
         $this->judgementModal = false;
     }
 
