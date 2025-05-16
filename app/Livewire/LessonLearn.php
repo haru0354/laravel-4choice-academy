@@ -13,7 +13,10 @@ class LessonLearn extends Component
     public $lesson;
     public $drills = [];
     public $currentIndex = 0;
+
     public $judgementModal = false;
+    public $isCorrect;
+    public $selectedChoice;
 
     public function mount($lesson_id)
     {
@@ -21,9 +24,22 @@ class LessonLearn extends Component
         $this->getLesson($lesson_id);
     }
 
-    public function selectAnswer()
+    public function selectChoice($choiceNo)
     {
         $this->judgementModal = true;
+        $this->judgement($choiceNo);
+    }
+
+    public function judgement($choiceNo)
+    {
+        $drill = $this->drills[$this->currentIndex];
+        $correctChoice = $drill->correct_choice;
+
+        if ($choiceNo === $correctChoice) {
+            $this->isCorrect = true;
+        } else {
+            $this->isCorrect = false;
+        }
     }
 
     public function nextQuestion()
