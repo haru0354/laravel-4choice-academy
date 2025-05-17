@@ -1,6 +1,4 @@
-<div>
-    @if (isset($drills[$currentIndex]))
-
+<section>
     @php
     $drill = $drills[$currentIndex];
     @endphp
@@ -8,21 +6,20 @@
     <h2 class="text-xl font-bold text-gray-800 mb-6">
         問題：{{ $drill->question}}
     </h2>
-    <ul class="mt-4 space-y-4">
-        <li wire:click="selectChoice(1)">
-            解答.1：{{ $drill->choice_1 }}
-        </li>
-        <li wire:click="selectChoice(2)">
-            解答.2：{{ $drill->choice_2 }}
-        </li>
-        <li wire:click="selectChoice(3)">
-            解答.3：{{ $drill->choice_3 }}
-        </li>
-        <li wire:click="selectChoice(4)">
-            解答.4：{{ $drill->choice_4 }}
-        </li>
-    </ul>
-    @endif
+    <div class="w-[90%] mx-auto">
+        <x-ui.answer-button wire="selectChoice(1)" listName="解答1">
+            {{ $drill->choice_1 }}
+        </x-ui.answer-button>
+        <x-ui.answer-button wire="selectChoice(2)" listName="解答2">
+            {{ $drill->choice_2 }}
+        </x-ui.answer-button>
+        <x-ui.answer-button wire="selectChoice(3)" listName="解答3">
+            {{ $drill->choice_3 }}
+        </x-ui.answer-button>
+        <x-ui.answer-button wire="selectChoice(4)" listName="解答4">
+            {{ $drill->choice_4 }}
+        </x-ui.answer-button>
+    </div>
 
     @if($judgementModal)
     <x-ui.modal-container id="judgement">
@@ -53,4 +50,4 @@
         </div>
     </x-ui.modal-container>
     @endif
-</div>
+</section>
