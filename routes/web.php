@@ -12,6 +12,10 @@ Route::get('dashboard/{lesson_id}', function ($lesson_id) {
     return view('drills', ['lesson_id' => $lesson_id]);
 })->middleware(['auth', 'verified'])->name('drills');
 
+Route::get('dashboard/{lesson_id}/learn', function ($lesson_id) {
+    return view('learn', ['lesson_id' => $lesson_id]);
+})->middleware(['auth', 'verified'])->name('learn');
+
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');

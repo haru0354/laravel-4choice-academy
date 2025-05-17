@@ -20,7 +20,27 @@
             @endforeach
         </tbody>
     </table>
-    <x-ui.button wire="openDrillModal" class="block mx-auto my-4 rounded">問題の追加</x-ui.button>
+    <div class="flex items-center justify-center my-8">
+        <x-ui.button wire="openDrillModal" class="mx-4 rounded">問題の追加</x-ui.button>
+        <x-ui.button-link route="{{ route('dashboard')}}" color="gray" class="mx-4 rounded">レッスンの一覧へ</x-ui.button-link>
+    </div>
+
+    <h2 class="mb-6 text-2xl font-semibold">問題の一覧で学習</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        @foreach ($drills as $drill)
+        <div class="p-4 rounded-lg shadow-md bg-red-100 border hover:border-gray-600">
+            <h4 class="my-2 font-semibold">{{ $drill->question }}</h4>
+            <div class="my-2">
+                <span class="font-semibold text-green-700">✅ 正解</span>
+                <p class="ml-8">{{ $drill->{"choice_" . $drill->correct_choice} }}</p>
+            </div>
+            <div class="my-2">
+                <span class="font-semibold text-blue-700">📘 解説</span>
+                <p class="ml-8">{{ $drill->explanations }}</p>
+            </div>
+        </div>
+        @endforeach
+    </div>
 
     @if($drillModal)
     <x-ui.modal-container wire="closeDrillModal" id="drill">

@@ -6,9 +6,9 @@
                 <th class="px-4 py-3 font-semibold bg-gray-100">No.</th>
                 <th class="px-4 py-3 font-semibold bg-gray-100">レッスン名</th>
                 <th class="px-4 py-3 font-semibold bg-gray-100">登録日</th>
-                <th class="px-4 py-3 font-semibold bg-gray-100">学ぶ</th>
-                <th class="px-4 py-3 font-semibold bg-gray-100">編集</th>
+                <th class="px-4 py-3 font-semibold bg-gray-100">学習</th>
                 <th class="px-4 py-3 font-semibold bg-gray-100">詳細</th>
+                <th class="px-4 py-3 font-semibold bg-gray-100">編集</th>
             </tr>
         </thead>
         <tbody>
@@ -17,14 +17,14 @@
                 <td class="px-4 py-3 border-t-2 border-gray-200">{{ $lesson->id }}</td>
                 <td class="px-4 py-3 border-t-2 border-gray-200">{{ $lesson->title }}</td>
                 <td class="px-4 py-3 border-t-2 border-gray-200">{{ $lesson->created_at }}</td>
-                <td class="px-4 py-3 border-t-2 border-gray-200">開始</td>
-                <td class="px-4 py-3 border-t-2 text-sky-500 hover:text-sky-700 border-gray-200 cursor-pointer" wire:click="openEditLessonModal({{ $lesson->id }})">編集</td>
+                <td class="px-4 py-3 border-t-2  border-gray-200"><a href="{{ route('learn', ['lesson_id' => $lesson->id]) }}" class="text-sky-500 hover:text-sky-700">開始</a></td>
                 <td class="px-4 py-3 border-t-2  border-gray-200"><a href="{{ route('drills', ['lesson_id' => $lesson->id]) }}" class="text-sky-500 hover:text-sky-700">詳細</a></td>
+                <td class="px-4 py-3 border-t-2 text-sky-500 hover:text-sky-700 border-gray-200 cursor-pointer" wire:click="openEditLessonModal({{ $lesson->id }})">編集</td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    <x-ui.button wire="openLessonModal" class="block mx-auto my-4">レッスンの作成</x-ui.button>
+    <x-ui.button wire="openLessonModal" class="block mx-auto my-4 rounded">レッスンの作成</x-ui.button>
 
     @if($lessonModal)
     <x-ui.modal-container wire="closeLessonModal" id="lesson">
