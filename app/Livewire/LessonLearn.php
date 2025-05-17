@@ -41,13 +41,15 @@ class LessonLearn extends Component
     {
         $drill = $this->drills[$this->currentIndex];
         $correctChoice = $drill->correct_choice;
+        $correctChoiceKey = 'choice_' . $correctChoice;
 
         if ($choiceNo === $correctChoice) {
             $this->isCorrect = true;
         } else {
             session()->push('wrong_questions', [
                 'question' => $drill->question,
-                'explanations' => $drill->explanations
+                'explanations' => $drill->explanations,
+                'correct' => $drill->$correctChoiceKey,
             ]);
             $this->isCorrect = false;
         }

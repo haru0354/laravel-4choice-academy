@@ -48,9 +48,16 @@
         @if ($wrongQuestions)
         <h3 class="text-lg font-semibold mb-2">❌ 間違えた問題 ❌</h3>
         @foreach ($wrongQuestions as $wrongQuestion)
-        <div class="p-4 my-4 rounded-lg shadow-md bg-red-100">
+        <div class="p-4 my-4 rounded-lg shadow-md bg-red-100 border hover:border-gray-600">
             <h4 class="my-2 font-semibold">{{ $wrongQuestion['question'] }} </h4>
-            <p>{{ $wrongQuestion['explanations'] }}</p>
+            <div class="my-2">
+                <span class="font-semibold text-green-700">✅ 正解</span>
+                <p class="ml-8">{{ $wrongQuestion['correct'] }}</p>
+            </div>
+            <div class="my-2">
+                <span class="font-semibold text-blue-700">📘 解説</span>
+                <p class="ml-8">{{ $wrongQuestion['explanations'] }}</p>
+            </div>
         </div>
         @endforeach
         @endif
