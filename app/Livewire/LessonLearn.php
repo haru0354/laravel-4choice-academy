@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Lesson;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class LessonLearn extends Component
@@ -20,6 +21,7 @@ class LessonLearn extends Component
     public $selectedChoice;
 
     public $isLessonEndModal = false;
+    public $wrongQuestions = [];
 
     public function mount($lesson_id)
     {
@@ -41,6 +43,10 @@ class LessonLearn extends Component
         if ($choiceNo === $correctChoice) {
             $this->isCorrect = true;
         } else {
+            session()->push('wrong_questions', [
+                'question' => $drill->question,
+                'explanations' => $drill->explanations
+            ]);
             $this->isCorrect = false;
         }
     }
@@ -50,6 +56,7 @@ class LessonLearn extends Component
         if ($this->currentIndex >= count($this->drills) - 1) {
             $this->judgementModal = false;
             $this->isLessonEndModal = true;
+            $this->wrongQuestions = Session::get('wrong_questions', []);
             return;
         }
 

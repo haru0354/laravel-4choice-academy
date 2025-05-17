@@ -39,11 +39,22 @@
     @if ($isLessonEndModal)
     <x-ui.modal-container id="end">
         <h2 class="text-2xl font-extrabold text-gray-800 text-center mb-6">
-            🎉 クイズ終了 🎉
+            🎉 レッスン終了 🎉
         </h2>
         <p class="my-6 text-lg text-gray-700 text-center">
             お疲れさまでした！これにてクイズは終了です
         </p>
+
+        @if ($wrongQuestions)
+        <h3 class="text-lg font-semibold mb-2">❌ 間違えた問題 ❌</h3>
+        @foreach ($wrongQuestions as $wrongQuestion)
+        <div class="p-4 my-4 rounded-lg shadow-md bg-red-100">
+            <h4 class="my-2 font-semibold">{{ $wrongQuestion['question'] }} </h4>
+            <p>{{ $wrongQuestion['explanations'] }}</p>
+        </div>
+        @endforeach
+        @endif
+
         <div class="mt-4 text-center">
             <x-ui.button-link route="{{ route('dashboard') }}" class="rounded">レッスンの一覧へ</x-ui.button-link>
             <x-ui.button-link route="{{ route('learn', [$lesson_id => $lesson->id]) }}" color="gray" class="rounded">もういちど挑戦</x-ui.button-link>
