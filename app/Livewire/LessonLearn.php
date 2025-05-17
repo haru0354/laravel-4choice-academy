@@ -25,6 +25,8 @@ class LessonLearn extends Component
 
     public function mount($lesson_id)
     {
+        Session::forget('wrong_questions');
+
         $this->user_id = Auth::id();
         $this->getLesson($lesson_id);
     }
