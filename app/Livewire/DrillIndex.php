@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Drill;
 use App\Models\Lesson;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
 class DrillIndex extends Component
@@ -64,18 +65,9 @@ class DrillIndex extends Component
 
     public function drillStore()
     {
-        Drill::create([
-            'user_id' => $this->user_id,
-            'lesson_id' => $this->lesson_id,
-            'question' => $this->question,
-            'choice_1' => $this->choice_1,
-            'choice_2' => $this->choice_2,
-            'choice_3' => $this->choice_3,
-            'choice_4' => $this->choice_4,
-            'correct_choice' => $this->correct_choice,
-            'explanations' => $this->explanations,
+        $validated = $this->validateDrill();
 
-        ]);
+        Drill::create($validated);
 
         $this->getDrills();
         $this->closeDrillModal();
@@ -84,16 +76,9 @@ class DrillIndex extends Component
     public function drillUpdate()
     {
         $drill = Drill::findOrFail($this->editingDrillId);
+        $validated = $this->validateDrill();
 
-        $drill->update([
-            'question' => $this->question,
-            'choice_1' => $this->choice_1,
-            'choice_2' => $this->choice_2,
-            'choice_3' => $this->choice_3,
-            'choice_4' => $this->choice_4,
-            'correct_choice' => $this->correct_choice,
-            'explanations' => $this->explanations,
-        ]);
+        $drill->update($validated);
 
         $this->getDrills();
         $this->closeDrillModal();
@@ -121,7 +106,64 @@ class DrillIndex extends Component
 
     public function resetDrillForm()
     {
-        $this->reset(['editingDrillId', 'question', 'choice_1', 'choice_2', 'choice_3', 'choice_4', 'correct_choice', 'explanations']);
+        $this->reset([
+            'editingDrillId',
+            'question',
+            'choice_1',
+            'choice_2',
+            'choice_3',
+            'choice_4',
+            'correct_choice',
+            'explanations'
+        ]);
+    }
+
+    public function rules()
+    {
+        return [
+            'user_id' => 'required|exists:users,id',
+            'lesson_id' => 'required|exists:lessons,id',
+            'question' => 'required|string',
+            'choice_1' => 'required|string|max:50',
+            'choice_2' => 'required|string|max:50',
+            'choice_3' => 'required|string|max:50',
+            'choice_4' => 'required|string|max:50',
+            'correct_choice' => 'required|integer|between:1,4',
+            'explanations' => 'nullable|string',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'question' => '問題',
+            'choice_1' => '解答.1',
+            'choice_2' => '解答.2',
+            'choice_3' => '解答.3',
+            'choice_4' => '解答.4',
+            'correct_choice' => '答え',
+            'explanations' => '解説',
+        ];
+    }
+
+    protected function validateDrill()
+    {
+        return Validator::make(
+            $this->only([
+                'user_id',
+                'lesson_id',
+                'question',
+                'choice_1',
+                'choice_2',
+                'choice_3',
+                'choice_4',
+                'correct_choice',
+                'explanations'
+            ]),
+            $this->rules(),
+            [],
+            $this->attributes()
+        )->validate();
     }
 
     public function render()
