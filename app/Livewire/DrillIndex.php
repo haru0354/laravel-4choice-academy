@@ -55,6 +55,7 @@ class DrillIndex extends Component
     public function closeDrillModal()
     {
         $this->drillModal = false;
+        $this->resetErrorBag();
         $this->resetDrillForm();
     }
 

@@ -44,6 +44,7 @@ class LessonIndex extends Component
     public function closeLessonModal()
     {
         $this->lessonModal = false;
+        $this->resetErrorBag();
         $this->resetLessonForm();
     }
 
@@ -65,7 +66,7 @@ class LessonIndex extends Component
     public function lessonUpdate()
     {
         $lesson = Lesson::findOrFail($this->editingLessonId);
-        
+
         $validated = $this->validateLesson();
 
         $lesson->update($validated);
