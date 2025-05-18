@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Lesson;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
 class LessonIndex extends Component
@@ -43,6 +44,7 @@ class LessonIndex extends Component
     public function closeLessonModal()
     {
         $this->lessonModal = false;
+        $this->resetErrorBag();
         $this->resetLessonForm();
     }
 
@@ -53,10 +55,9 @@ class LessonIndex extends Component
 
     public function lessonStore()
     {
-        Lesson::create([
-            'user_id' => $this->user_id,
-            'title' => $this->title,
-        ]);
+        $validated = $this->validateLesson();
+
+        Lesson::create($validated);
 
         $this->getLessons();
         $this->closeLessonModal();
@@ -66,9 +67,9 @@ class LessonIndex extends Component
     {
         $lesson = Lesson::findOrFail($this->editingLessonId);
 
-        $lesson->update([
-            'title' => $this->title,
-        ]);
+        $validated = $this->validateLesson();
+
+        $lesson->update($validated);
 
         $this->closeLessonModal();
         $this->getLessons();
@@ -93,6 +94,31 @@ class LessonIndex extends Component
     public function resetLessonForm()
     {
         $this->reset(['editingLessonId', 'title']);
+    }
+
+    public function rules()
+    {
+        return [
+            'user_id' => 'required|exists:users,id',
+            'title' => 'required|string|min:2|max:25',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'レッスン名',
+        ];
+    }
+
+    protected function validateLesson()
+    {
+        return Validator::make(
+            $this->only(['user_id', 'title']),
+            $this->rules(),
+            [],
+            $this->attributes()
+        )->validate();
     }
 
     public function render()
