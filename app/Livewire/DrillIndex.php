@@ -15,7 +15,7 @@ class DrillIndex extends Component
     public $lessonTitle;
     public $drillModal = false;
     public $deleteDrillModal = false;
-    public $lesson_id, $editingDrillId, $question, $choice_1, $choice_2, $choice_3, $choice_4, $correct_choice, $explanations;
+    public $lesson_id, $editingDrillId, $question, $choice_1, $choice_2, $choice_3, $choice_4, $correct_choice = "1", $explanations;
 
     public function mount($lesson_id)
     {
