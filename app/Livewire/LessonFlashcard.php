@@ -16,12 +16,24 @@ class LessonFlashcard extends Component
     public $drills = [];
     public $currentIndex = 0;
 
+    public $answerCard = false;
+
     public function mount($lesson_id)
     {
         $this->user_id = Auth::id();
         $this->lesson_id = $lesson_id;
 
         $this->getLesson($lesson_id);
+    }
+
+    public function openQuestion()
+    {
+        $this->answerCard = false;
+    }
+
+    public function openAnswer()
+    {
+        $this->answerCard = true;
     }
 
     public function getLesson($lesson_id)
