@@ -27,13 +27,22 @@
         <div class="my-2 flex flex-col md:flex-row ">
             <x-ui.button class="mx-2 rounded" color="blue"
                 wire="{{ $answerCard ? 'openQuestion' : 'backQuestion' }}">⬅ 戻る</x-ui.button>
-            <x-ui.button-link class="mx-2 rounded" color="green"
-                route="{{ route('dashboard') }}">終了</x-ui.button-link>
+            <x-ui.button class="mx-2 rounded" color="green"
+                wire="openEndModal">終了</x-ui.button>
             <x-ui.button class="mx-2 rounded"
                 wire="{{ $answerCard ? 'nextQuestion' : 'openAnswer'}}">次へ ➡</x-ui.button>
         </div>
     </div>
 
-
+    @if ($endModal)
+    <x-ui.modal-container wire="closeEndModal" id="end-Modal" class="text-xl text-center font-semibold">
+        <p class="mb-6">終了するとレッスンの一覧画面へ戻ります。</p>
+        <p class="mb-6">次回開始時は最初からとなります。</p>
+        <x-ui.button class="mx-2 rounded" color="gray"
+            wire="closeEndModal">キャンセル</x-ui.button>
+        <x-ui.button-link class="mx-2 rounded" color="red"
+            route="{{ route('dashboard') }}">終了</x-ui.button-link>
+    </x-ui.modal-container>
+    @endif
 
 </section>

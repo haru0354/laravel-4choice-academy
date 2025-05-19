@@ -18,6 +18,9 @@ class LessonFlashcard extends Component
 
     public $answerCard = false;
 
+    public $endModal = false;
+
+
     public function mount($lesson_id)
     {
         $this->user_id = Auth::id();
@@ -46,6 +49,16 @@ class LessonFlashcard extends Component
     {
         $this->currentIndex--;
         $this->answerCard = true;
+    }
+
+    public function openEndModal()
+    {
+        $this->endModal = true;
+    }
+
+    public function closeEndModal()
+    {
+        $this->endModal = false;
     }
 
     public function getLesson($lesson_id)
