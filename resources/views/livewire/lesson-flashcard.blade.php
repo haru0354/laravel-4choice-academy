@@ -24,10 +24,12 @@
 
         </div>
 
-        <div class="my-2">
-            <x-ui.button class="mx-6 rounded" color="blue"
+        <div class="my-2 flex flex-col md:flex-row ">
+            <x-ui.button class="mx-2 rounded" color="blue"
                 wire="{{ $answerCard ? 'openQuestion' : 'backQuestion' }}">⬅ 戻る</x-ui.button>
-            <x-ui.button class="mx-6 rounded"
+            <x-ui.button-link class="mx-2 rounded" color="green"
+                route="{{ route('dashboard') }}">終了</x-ui.button-link>
+            <x-ui.button class="mx-2 rounded"
                 wire="{{ $answerCard ? 'nextQuestion' : 'openAnswer'}}">次へ ➡</x-ui.button>
         </div>
     </div>
