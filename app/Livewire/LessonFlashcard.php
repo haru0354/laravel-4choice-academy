@@ -36,6 +36,18 @@ class LessonFlashcard extends Component
         $this->answerCard = true;
     }
 
+    public function nextQuestion()
+    {
+        $this->currentIndex++;
+        $this->answerCard = false;
+    }
+
+    public function backQuestion()
+    {
+        $this->currentIndex--;
+        $this->answerCard = true;
+    }
+
     public function getLesson($lesson_id)
     {
         $this->lesson = Lesson::where('id', $lesson_id)->with('drills')->first();
