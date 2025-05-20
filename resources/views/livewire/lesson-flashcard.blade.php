@@ -24,12 +24,19 @@
 
         </div>
 
-        <div class="my-2 flex flex-col md:flex-row ">
-            <x-ui.button class="mx-2 rounded" color="blue"
+        <div class="my-2 grid grid-cols-1 md:grid-cols-3 gap-2">
+            @if ($currentIndex > 0 || $answerCard === true)
+            <x-ui.button class="rounded" color="blue"
                 wire="{{ $answerCard ? 'openQuestion' : 'backQuestion' }}">⬅ 戻る</x-ui.button>
-            <x-ui.button class="mx-2 rounded" color="green"
+            @else
+            <div class="invisible">
+                <x-ui.button class="rounded" color="blue">⬅ 戻る</x-ui.button>
+            </div>
+            @endif
+
+            <x-ui.button class="rounded" color="green"
                 wire="openEndModal">終了</x-ui.button>
-            <x-ui.button class="mx-2 rounded"
+            <x-ui.button class="rounded"
                 wire="{{ $answerCard ? 'nextQuestion' : 'openAnswer'}}">次へ ➡</x-ui.button>
         </div>
     </div>
