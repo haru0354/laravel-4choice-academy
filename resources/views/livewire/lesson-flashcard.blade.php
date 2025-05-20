@@ -21,7 +21,6 @@
                 <h3 class="my-2 text-2xl font-semibold break-words">{{ $drill->question }}</h3>
             </div>
             @endif
-
         </div>
 
         <div class="my-2 grid grid-cols-1 md:grid-cols-3 gap-2">
@@ -33,7 +32,6 @@
                 <x-ui.button class="rounded" color="blue">⬅ 戻る</x-ui.button>
             </div>
             @endif
-
             <x-ui.button class="rounded" color="green"
                 wire="openEndModal">終了</x-ui.button>
             <x-ui.button class="rounded"
@@ -41,14 +39,31 @@
         </div>
     </div>
 
-    @if ($endModal)
-    <x-ui.modal-container wire="closeEndModal" id="end-Modal" class="text-xl text-center font-semibold">
+    @if ($cancelModal)
+    <x-ui.modal-container wire="closeEndModal" id="cancel-Modal" class="text-xl text-center font-semibold">
         <p class="mb-6">終了するとレッスンの一覧画面へ戻ります。</p>
         <p class="mb-6">次回開始時は最初からとなります。</p>
         <x-ui.button class="mx-2 rounded" color="gray"
             wire="closeEndModal">キャンセル</x-ui.button>
         <x-ui.button-link class="mx-2 rounded" color="red"
             route="{{ route('dashboard') }}">終了</x-ui.button-link>
+    </x-ui.modal-container>
+    @endif
+
+    @if ($endModal)
+    <x-ui.modal-container wire="closeEndModal" id="end-Modal" class="text-center">
+        <h2 class="text-2xl font-extrabold text-gray-800 text-center mb-6">
+            🎉 暗記カードの終了 🎉
+        </h2>
+        <p class="my-6 text-lg text-gray-700 text-center">
+            お疲れさまでした！これにて暗記カードは終了です
+        </p>
+        <div class="my-2">
+            <x-ui.button-link class="mx-2 rounded" color="green"
+                route="{{ route('dashboard') }}">レッスンの一覧へ</x-ui.button-link>
+            <x-ui.button-link class="mx-2 rounded" color="gray"
+                route="{{ route('flashcard', ['lesson_id' => $drill->lesson_id]) }}">最初からやり直す</x-ui.button-link>
+        </div>
     </x-ui.modal-container>
     @endif
 

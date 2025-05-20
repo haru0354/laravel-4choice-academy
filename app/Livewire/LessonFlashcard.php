@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Models\Drill;
 use App\Models\Lesson;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -18,6 +17,7 @@ class LessonFlashcard extends Component
 
     public $answerCard = false;
 
+    public $cancelModal = false;
     public $endModal = false;
 
 
@@ -41,6 +41,11 @@ class LessonFlashcard extends Component
 
     public function nextQuestion()
     {
+        if ($this->currentIndex >= count($this->drills) - 1) {
+            $this->endModal = true;
+            return;
+        }
+
         $this->currentIndex++;
         $this->answerCard = false;
     }
@@ -53,12 +58,12 @@ class LessonFlashcard extends Component
 
     public function openEndModal()
     {
-        $this->endModal = true;
+        $this->cancelModal = true;
     }
 
     public function closeEndModal()
     {
-        $this->endModal = false;
+        $this->cancelModal = false;
     }
 
     public function getLesson($lesson_id)
