@@ -16,6 +16,10 @@ Route::get('dashboard/{lesson_id}/learn', function ($lesson_id) {
     return view('learn', ['lesson_id' => $lesson_id]);
 })->middleware(['auth', 'verified'])->name('learn');
 
+Route::get('dashboard/{lesson_id}/flashcard', function ($lesson_id) {
+    return view('flashcard', ['lesson_id' => $lesson_id]);
+})->middleware(['auth', 'verified'])->name('flashcard');
+
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
