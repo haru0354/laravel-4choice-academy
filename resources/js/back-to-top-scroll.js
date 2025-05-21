@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     const btn = document.querySelector("#back-to-top");
 
     window.addEventListener("scroll", function () {
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", () => {
         window.scrollTo({
             top: 0,
             behavior: "smooth",
