@@ -32,5 +32,6 @@
                 {{ $slot }}
             </main>
         </div>
+        <x-ui.back-to-top-button />
     </body>
 </html>

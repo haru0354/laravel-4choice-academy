@@ -29,6 +29,7 @@ class DrillIndex extends Component
     public function openDrillModal()
     {
         $this->drillModal = true;
+        $this->dispatch('modal-opened');
     }
 
     public function openEditDrillModal($editingDrillId)
@@ -45,6 +46,7 @@ class DrillIndex extends Component
         $this->explanations = $drill->explanations;
 
         $this->drillModal = true;
+        $this->dispatch('modal-opened');
     }
 
     public function openDeleteDrillModal()
@@ -55,6 +57,7 @@ class DrillIndex extends Component
     public function closeDrillModal()
     {
         $this->drillModal = false;
+        $this->dispatch('modal-closed');
         $this->resetErrorBag();
         $this->resetDrillForm();
     }

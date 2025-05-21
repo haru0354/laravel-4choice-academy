@@ -3,8 +3,10 @@
     $drill = $drills[$currentIndex];
     @endphp
 
-    <div class="flex flex-col fixed inset-0 items-center justify-center w-full h-full bg-gray-700 bg-opacity-50 z-50">
-        <div class="flex items-center justify-center w-full max-w-[600px] min-h-[280px] mx-2 p-6 shadow-lg scroll-y-auto overflow-auto border border-gray-400 bg-white">
+    <div class="flex flex-col fixed inset-0 items-center justify-center w-full h-full p-2 bg-gray-700 bg-opacity-50 z-50">
+        <div @class(['flex justify-center w-full max-w-[600px] min-h-[280px] mx-2 p-6 shadow-lg border border-gray-400 bg-white', 'items-start'=> $answerCard,
+            'items-center' => !$answerCard,
+            ])>
             @if ($answerCard)
             <div class="w-full text-lg">
                 <div class="mb-6">

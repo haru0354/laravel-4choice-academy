@@ -25,6 +25,7 @@ class LessonIndex extends Component
     public function openLessonModal()
     {
         $this->lessonModal = true;
+        $this->dispatch('modal-opened');
     }
 
     public function openEditLessonModal($editingLessonId)
@@ -34,6 +35,7 @@ class LessonIndex extends Component
         $this->editingLessonId = $editingLessonId;
         $this->title = $lesson->title;
         $this->lessonModal = true;
+        $this->dispatch('modal-opened');
     }
 
     public function openDeleteLessonModal()
@@ -44,6 +46,7 @@ class LessonIndex extends Component
     public function closeLessonModal()
     {
         $this->lessonModal = false;
+        $this->dispatch('modal-closed');
         $this->resetErrorBag();
         $this->resetLessonForm();
     }
