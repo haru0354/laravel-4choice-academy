@@ -48,10 +48,7 @@
                 <p>「クイズを始める」または「フラッシュカードで学習」ボタンから、すぐに学習をスタートできます。</p>
             </main>
 
-            <footer class="py-2 text-center text-xs text-gray-500">
-                &copy; サイトタイトル
-            </footer>
-
+            <x-layout.footer />
         </div>
     </div>
 
