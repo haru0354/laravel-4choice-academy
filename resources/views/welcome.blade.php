@@ -35,15 +35,14 @@
                     </div>
                 </div>
 
-                <div>
-                    CTA
-                </div>
+                <x-layout.cta title="レッスンの自作も可能" content="簡単にレッスンを作成することができます。また、フラッシュカードモードは自動で作成されます。"/>
+
                 <div>
                     QA
                 </div>
-                <div>
-                    CTA
-                </div>
+
+                <x-layout.cta title="いますぐ無料ではじめる" />
+
 
 
 
