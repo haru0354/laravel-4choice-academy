@@ -23,17 +23,19 @@
             <main>
                 <x-layout.hero />
 
-                <h2>🔍 主な機能</h2>
-                <div class="features">
-                    <div class="feature">
-                        <strong>✔️ 4択クイズ</strong>
-                        <p>ランダムまたはカテゴリ別に出題されるクイズで知識を確認できます。解答後には正解・解説も表示。</p>
-                    </div>
-                    <div class="feature">
-                        <strong>✔️ フラッシュカード</strong>
-                        <p>覚えたい単語や用語をカード形式で繰り返し復習できます。シンプルな操作で暗記効率UP！</p>
-                    </div>
-                </div>
+                <x-layout.flex-box
+                    title="4択クイズ"
+                    :contents="[
+                        'ランダムまたはカテゴリ別に出題されるクイズで知識を確認できます。',
+                        '解答後には正解・解説も表示。'
+                ]" />
+                <x-layout.flex-box
+                    :imageRight="false"
+                    title="フラッシュカード"
+                    :contents="[
+                        '覚えたい単語や用語をカード形式で繰り返し復習できます。',
+                        'シンプルな操作で暗記効率UP'
+                ]" />
 
                 <x-layout.cta title="レッスンの自作も可能" content="簡単にレッスンを作成することができます。また、フラッシュカードモードは自動で作成されます。" />
                 <x-layout.grid-three-box title="●●の6つの特徴" :contents="[
