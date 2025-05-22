@@ -16,13 +16,9 @@
 </head>
 
 <body class="font-sans">
-    <div class="flex flex-col items-center justify-start">
+    <div class="flex flex-col items-center justify-start ">
         <div class="max-w-[1120px] mx-4">
-            <header>
-                @if (Route::has('login'))
-                <livewire:welcome.navigation />
-                @endif
-            </header>
+            <x-layout.header />
 
             <main class="py-6">
                 <h1>📚 学習アプリへようこそ！</h1>
