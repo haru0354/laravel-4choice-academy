@@ -6,8 +6,8 @@
     ],
 ])
 
-<section class="w-full">
-    <h2 class="my-8 text-center text-2xl font-bold">{{ $title }}</h2>
+<section class="w-full py-16">
+    <h2 class="mb-10 text-center text-3xl font-bold">{{ $title }}</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         @foreach ($contents as $content)
         <div class="p-4 rounded shadow border border-gray-400">
