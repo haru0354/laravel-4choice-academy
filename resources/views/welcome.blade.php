@@ -22,18 +22,25 @@
 
             <main>
                 <x-layout.hero />
+                <h2 class="mb-10 text-center text-3xl font-bold">簡単・手軽な学習アプリ</h2>
                 <x-layout.flex-box
-                    title='4択クイズ'
+                    title='4択での学習レッスン'
                     :contents="[
                         'ランダムまたはカテゴリ別に出題されるクイズで知識を確認できます。',
                         '解答後には正解・解説も表示。'
                 ]" />
                 <x-layout.flex-box
                     :imageRight="false"
-                    title='フラッシュカード'
+                    title='フラッシュカードによる暗記'
                     :contents="[
                         '覚えたい単語や用語をカード形式で繰り返し復習できます。',
                         'シンプルな操作で暗記効率UP'
+                ]" />
+                <x-layout.flex-box
+                    title='レッスンの自作が可能'
+                    :contents="[
+                        '最初は「初期レッスン」が登録されているので、すぐにでも学習をすることができます。',
+                        '「自作のレッスン」の作成が可能なので、オリジナルのレッスンを試すことができます。'
                 ]" />
                 <x-layout.grid-card title="様々な学習に利用可能！" :contents="[
                     ['title' => '初期レッスンの学習', 'content' => '初期のレッスンには「」や「」や「」などがあります。'],
