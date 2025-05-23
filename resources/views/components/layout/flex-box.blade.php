@@ -8,13 +8,13 @@
     $position = $imageRight ? 'md:flex-row' : 'md:flex-row-reverse';
 @endphp
 
-<section class="w-full py-10">
-    <div class="w-full md:w-[85%] mx-auto flex flex-col {{ $position }} justify-center">
-        <div class="w-full p-4">
-            <h2 class="mb-10 text-center text-2xl font-bold">{{ $title }}</h2>
+<section class="py-10">
+    <div class="{{ $position }} w-full md:w-[90%] mx-auto flex flex-col justify-center items-center md:items-start">
+        <div class="w-full py-8 px-4">
+            <h2 class="mb-10 text-center text-2xl font-bold">{{ $title }}faf</h2>
             @if (is_array($contents))
                 @foreach ($contents as $content)
-                    <p class="mb-2">{{ $content }}</p>
+                    <p class="text-center md:text-left mb-2">{{ $content }}</p>
                 @endforeach
             @endif
         </div>
