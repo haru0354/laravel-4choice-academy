@@ -6,10 +6,11 @@
 
 @php
     $colors = [
-        'blue' => 'bg-blue-500 hover:bg-blue-700',
-        'red' => 'bg-red-500 hover:bg-red-700',
-        'green' => 'bg-green-500 hover:bg-green-700',
-        'gray' => 'bg-gray-500 hover:bg-gray-700',
+        'blue' => 'text-white shadow-md bg-blue-500 hover:bg-blue-700',
+        'red' => 'text-white shadow-md bg-red-500 hover:bg-red-700',
+        'green' => 'text-white shadow-md bg-green-500 hover:bg-green-700',
+        'gray' => 'text-white shadow-md bg-gray-500 hover:bg-gray-700',
+        'white' => 'hover:bg-gray-200',
     ];
 
     $sizes = [
@@ -23,6 +24,6 @@
 @endphp
 
 <a href="{{ $route }}"
-    {{ $attributes->merge(['class' => "$colorClass $sizeClass inline-block text-center text-white font-bold shadow-md transition duration-200"]) }}>
+    {{ $attributes->merge(['class' => "$colorClass $sizeClass inline-block text-center font-bold  transition duration-200"]) }}>
     {{ $slot }}
 </a>
