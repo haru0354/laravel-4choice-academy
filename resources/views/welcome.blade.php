@@ -20,7 +20,7 @@
         <div class="max-w-[1120px] mx-4">
             <x-layout.header />
 
-            <main>
+            <main class="">
                 <x-layout.hero />
                 <h2 class="mb-10 text-center text-3xl font-bold">簡単・手軽な学習アプリ</h2>
                 <x-layout.flex-box
