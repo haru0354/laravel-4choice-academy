@@ -24,9 +24,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UserSeeder::class,
+            DrillSeeder::class,
         ]);
 
-        Lesson::factory()->count(5)->create();
-        Drill::factory()->count(20)->create();
+        // Lesson::factory()->count(5)->create();
+        // Drill::factory()->count(20)->create();
     }
 }
