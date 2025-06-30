@@ -48,23 +48,29 @@
         @if ($wrongQuestions)
         <h3 class="text-lg font-semibold mb-2">❌ 間違えた問題 ❌</h3>
         @foreach ($wrongQuestions as $wrongQuestion)
-        <div class="p-4 my-4 rounded-lg shadow-md bg-red-100 border hover:border-gray-600">
-            <h4 class="my-2 font-semibold">{{ $wrongQuestion['question'] }} </h4>
-            <div class="my-2">
-                <span class="font-semibold text-green-700">✅ 正解</span>
-                <p class="ml-8">{{ $wrongQuestion['correct'] }}</p>
+        <div class="p-6 my-4 rounded-xl shadow-lg bg-gradient-to-br from-red-100 via-white to-red-50 border border-red-200 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
+            <h4 class="mb-4 text-lg md:text-xl font-bold text-gray-800">{{ $wrongQuestion['question'] }}</h4>
+            <div class="flex items-start gap-2 mb-3">
+                <span class="text-xl text-green-700">✅</span>
+                <div>
+                    <p class="text-sm font-semibold text-green-700">正解</p>
+                    <p class="ml-1 text-gray-800">{{ $wrongQuestion['correct'] }}</p>
+                </div>
             </div>
-            <div class="my-2">
-                <span class="font-semibold text-blue-700">📘 解説</span>
-                <p class="ml-8">{{ $wrongQuestion['explanations'] }}</p>
+            <div class="flex items-start gap-2">
+                <span class="text-xl text-blue-700">📘</span>
+                <div>
+                    <p class="text-sm font-semibold text-blue-700">解説</p>
+                    <p class="ml-1 text-gray-800">{{ $wrongQuestion['explanations'] }}</p>
+                </div>
             </div>
         </div>
         @endforeach
         @endif
 
         <div class="mt-4 text-center">
-            <x-ui.button-link route="{{ route('dashboard') }}" class="rounded">レッスンの一覧へ</x-ui.button-link>
-            <x-ui.button-link route="{{ route('learn', [$lesson_id => $lesson->id]) }}" color="gray" class="rounded">もういちど挑戦</x-ui.button-link>
+            <x-ui.button-link route="{{ route('dashboard') }}" class="mx-2 rounded">レッスンの一覧へ</x-ui.button-link>
+            <x-ui.button-link route="{{ route('learn', [$lesson_id => $lesson->id]) }}" color="gray" class="mx-2 rounded">もういちど挑戦</x-ui.button-link>
         </div>
     </x-ui.modal-container>
     @endif
