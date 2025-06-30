@@ -24,21 +24,27 @@
     </div>
 
     <h2 class="mb-6 text-2xl font-semibold">各問題の詳細</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        @foreach ($drills as $drill)
-        <div class="p-4 rounded-lg shadow-md bg-red-100 border hover:border-gray-600">
-            <h4 class="my-2 font-semibold">{{ $drill->question }}</h4>
-            <div class="my-2">
-                <span class="font-semibold text-green-700">✅ 正解</span>
-                <p class="ml-8">{{ $drill->{"choice_" . $drill->correct_choice} }}</p>
-            </div>
-            <div class="my-2">
-                <span class="font-semibold text-blue-700">📘 解説</span>
-                <p class="ml-8">{{ $drill->explanations }}</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    @foreach ($drills as $drill)
+    <div class="p-6 rounded-xl shadow-lg bg-gradient-to-br from-red-100 via-white to-red-50 border border-red-200 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
+        <h4 class="mb-4 text-lg font-bold text-gray-800">{{ $drill->question }}</h4>
+        <div class="flex items-start gap-2 mb-3">
+            <span class="text-xl text-green-700">✅</span>
+            <div>
+                <p class="text-sm font-semibold text-green-700">正解</p>
+                <p class="ml-1 text-gray-800">{{ $drill->{"choice_" . $drill->correct_choice} }}</p>
             </div>
         </div>
-        @endforeach
+        <div class="flex items-start gap-2">
+            <span class="text-xl text-blue-700">📘</span>
+            <div>
+                <p class="text-sm font-semibold text-blue-700">解説</p>
+                <p class="ml-1 text-gray-800">{{ $drill->explanations }}</p>
+            </div>
+        </div>
     </div>
+    @endforeach
+</div>
 
     @if($drillModal)
     <x-ui.modal-container wire="closeDrillModal" id="drill">
