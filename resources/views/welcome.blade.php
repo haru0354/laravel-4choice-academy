@@ -54,10 +54,25 @@
                         '「学校の勉強」「資格の学習」「個人的な仕事の学習」などなど、あなたが必要となるレッスンの作成をしていきましょう。',
                 ]" />
                 <x-layout.grid-card title="様々な学習に利用可能！" :contents="[
-                    ['title' => '初期レッスンの学習', 'content' => '初期のレッスンには「」や「」や「」などがあります。'],
-                    ['title' => '英単語学習', 'content' => '英語の勉強に'],
-                    ['title' => '資格の取得に！', 'content' => '資格の取得に利用が可能'],
-                    ]" />
+                    [
+                        'title' => '初期登録レッスンの学習',
+                        'src'=>'images/thumbnail/preparation.webp',
+                        'alt' => '学習レッスンの準備中',
+                        'content' => '初期のレッスンは現在準備中です。',
+                    ],
+                    [
+                        'title' => '英語学習に！',
+                        'src'=>'images/thumbnail/lesson-english.webp',
+                        'alt' => 'サンプル画像',
+                        'content' => '英語の学習にも利用できます。',
+                    ],                    
+                    [
+                        'title' => '資格の取得に！',
+                        'src'=>'images/thumbnail/qualification.webp',
+                        'alt' => 'サンプル画像',
+                        'content' => '資格取得の為の学習にも利用できます。',
+                    ],
+                ]" />
                 <x-layout.cta title="レッスンの自作も可能" content='簡単にレッスンを作成することができます。また、フラッシュカードモードは自動で作成されます。' />
                 <x-layout.grid-three-box title='●●の6つの特徴' :contents="[
                     ['title' => '完全無料', 'content' => '完全無料で利用をすることができます完全無料で利用をすることができます。'],
