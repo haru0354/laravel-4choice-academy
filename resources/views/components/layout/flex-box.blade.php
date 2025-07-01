@@ -1,6 +1,8 @@
 @props([
     'title',
     'contents' => null,
+    'src' => '/src',
+    'alt' => '画像のaltが未設定',
     'imageRight' => true,
 ])
 
@@ -14,12 +16,12 @@
             <h3 class="mb-10 text-center text-2xl font-bold">{{ $title }}</h3>
             @if (is_array($contents))
                 @foreach ($contents as $content)
-                    <p class="text-center md:text-left mb-2">{{ $content }}</p>
+                    <p class="text-center md:text-left mb-4">{{ $content }}</p>
                 @endforeach
             @endif
         </div>
-        <div class="p-4">
-            <img src="{{ asset('images/sample.jpg') }}" alt="サンプル画像" class="w-[350px] h-[260px] bg-gray-200">
+        <div class="p-4 w-full">
+            <img src="{{ asset($src) }}" alt="{{ $alt }}" class="border rounded hover:scale-125 transition duration-300 border-gray-300 bg-gray-200">
         </div>
     </div>
 </section>
