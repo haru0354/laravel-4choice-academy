@@ -2,7 +2,9 @@
     'title',
     'contents' => [
         'title' => null,
-        'content' => null
+        'content' => null,
+        'src' => '/src',
+        'alt' => '画像の準備中',
     ],
 ])
 
@@ -13,7 +15,7 @@
             @foreach ($contents as $content)
                 <div class="flex flex-col items-center">
                     <h3 class="text-xl font-semibold mb-4">{{ $content['title'] }}</h3>
-                    <img src="{{ asset('images/sample.jpg') }}" alt="サンプル画像" class="w-[350px] h-[260px] mb-4 bg-gray-200">
+                    <img src="{{ asset($content['src']) }}" alt="{{ $content['alt'] }}" class="mb-4 bg-gray-200">
                     <p>{{ $content['content'] }}</p>
                 </div>
             @endforeach
