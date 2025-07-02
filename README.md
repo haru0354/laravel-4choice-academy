@@ -1,6 +1,6 @@
 # 学習アプリ（4 択 / フラッシュカード）の概要
 
-|複数旅のプランの作成 | 各しおりにメモのCRUD |
+|4択で学習するレッスン | フラッシュカード（暗記カード） |
 |-------|-------|
 | ![4択で学習するレッスン](/public/images/thumbnail/lesson-start.webp) | ![フラッシュカード（暗記カード）](/public/images/thumbnail/flashcard.webp) |
 
@@ -20,7 +20,7 @@
 
 ✅ 4 択モード（レッスン形式）
 
-|1.レッスンの選択 | 2.4択から答えを選択） |
+|1.レッスンの選択 | 2.4択から答えを選択 |
 |-------|-------|
 |　![レッスン一覧](/public/images/thumbnail/dashboard.webp) | ![4択で学習するレッスン](/public/images/thumbnail/lesson-start.webp) | |
 
