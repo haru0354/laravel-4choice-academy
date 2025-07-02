@@ -8,7 +8,7 @@
     ],
 ])
 
-<section class="w-full py-16">
+<x-layout.section-container bg="bg-gray-400">
     <div>
         <h2 class="mb-10 text-center text-3xl font-bold">{{ $title }}</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -21,4 +21,4 @@
             @endforeach
         </div>
     </div>
-</section>
+</x-layout.section-container>

@@ -17,9 +17,8 @@
 
 <body class="font-sans">
     <div class="flex flex-col items-center justify-start ">
-        <div class="max-w-[1120px] mx-4">
+        <div class="">
             <x-layout.header />
-
             <main>
                 <x-layout.hero />
                 <h2 class="mb-10 text-center text-3xl font-bold">簡単・手軽な学習アプリ</h2>
@@ -96,11 +95,9 @@
                     '「メールアドレス」 「パスワード」 「ニックネーム」で登録し、試しにはじめてみましょう。',
                 ]" />
             </main>
-
             <x-layout.footer />
         </div>
     </div>
-
 </body>
 
 </html>
