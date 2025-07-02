@@ -16,12 +16,10 @@
 </head>
 
 <body class="font-sans">
-    <div class="flex flex-col items-center justify-start ">
-        <div class="">
-            <x-layout.header />
-            <main>
-                <x-layout.hero />
-                <h2 class="mb-10 text-center text-3xl font-bold">簡単・手軽な学習アプリ</h2>
+        <x-layout.header />
+        <main>
+            <x-layout.hero />
+            <x-layout.section-container title="簡単・手軽な学習アプリ">
                 <x-layout.flex-box
                     title='4択での学習レッスン'
                     src='images/thumbnail/lesson-start.webp'
@@ -52,7 +50,8 @@
                         'また、4択のレッスンを作成することで、フラッシュカードも自動で作成されます',
                         '「学校の勉強」「資格の学習」「個人的な仕事の学習」などなど、あなたが必要となるレッスンの作成をしていきましょう。',
                 ]" />
-                <x-layout.grid-card title="様々な学習に利用可能！" :contents="[
+            </x-layout.section-container>
+            <x-layout.grid-card title="様々な学習に利用可能！" :contents="[
                     [
                         'title' => '初期登録レッスンの学習',
                         'src'=>'images/thumbnail/preparation.webp',
@@ -72,12 +71,12 @@
                         'content' => '資格取得の為の学習にも利用できます。',
                     ],
                 ]" />
-                <x-layout.cta title="どこでも手軽に学習" :contents="[
+            <x-layout.cta title="どこでも手軽に学習" :contents="[
                     'PC・スマホ・タブレットから、手軽に学習をすることができます。',
                     'アプリなので面倒な準備はなく、すき間時間を利用して、学習をすることが可能。',
                     '「待ち時間」「移動時間」を利用してスキルアップし、周りと差を付けましょう'
                 ]" />
-                <x-layout.grid-three-box title='6つの特徴' :contents="[
+            <x-layout.grid-three-box title='6つの特徴' :contents="[
                     ['title' => 'すき間時間で学習', 'content' => 'スマホ1つでどこでも学習ができます。たとえ30秒でも1つのレッスンを行ったり、着実に進む意味のある学習が可能です。'],
                     ['title' => '自作の学習ができる', 'content' => '学習する為のレッスンは自分でオリジナルのを作成することができます。今、あなたが必要と思っている事を勉強することができます。'],
                     ['title' => 'フラッシュカードを自動生成', 'content' => 'フラッシュカードは作成したレッスンを元に自動で生成がされます。そのため、1つ作成すれば2つのモードで学習ができます。'],
@@ -85,19 +84,17 @@
                     ['title' => '登録が簡単', 'content' => 'アカウント登録に必要なのは「メールアドレス」「パスワード」「ニックネーム」の3種類のみです。'],
                     ['title' => 'あらゆる端末対応', 'content' => '「Android」「iphone」に限らず、PC・スマホ・タブレットでの利用で同じアカウントを利用できます。'],
                 ]" />
-                <x-layout.three-step title='使い方はとっても簡単！' :contents="[
+            <x-layout.three-step title='使い方はとっても簡単！' :contents="[
                     ['title' => 'アカウント登録', 'content' => '「メールアドレス」「パスワード」「ニックネーム」で簡単にアカウント作成。無料ですぐに始められます。'],
                     ['title' => 'レッスンの作成', 'content' => '「英単語を覚える」「文法を学ぶ」「資格の勉強」。あなたの学習したいレッスンの作成をしましょう。'],
                     ['title' => '学習スタート！', 'content' => '「レッスン」「フラッシュカード」を選択肢し学習を開始です。'],
                 ]" />
-                <x-layout.cta title="いますぐ無料ではじめる" :contents="[
+            <x-layout.cta title="いますぐ無料ではじめる" :contents="[
                     '完全に無料で利用できる学習アプリです。',
                     '「メールアドレス」 「パスワード」 「ニックネーム」で登録し、試しにはじめてみましょう。',
                 ]" />
-            </main>
-            <x-layout.footer />
-        </div>
-    </div>
+        </main>
+        <x-layout.footer />
 </body>
 
 </html>
